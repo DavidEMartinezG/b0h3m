@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Transportes Bohem</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <!-- Fuentes de Google: Oxanium e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oxanium:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #07090c; 
+            color: #f3f4f6; 
+        }
+        h1, h2, h3, h4, h5, .font-heading { 
+            font-family: 'Oxanium', sans-serif; 
+        }
+        .text-yellow-bic {
+            color: #f5c518;
+        }
+        .bg-yellow-bic {
+            background-color: #f5c518;
+        }
+        .border-yellow-bic {
+            border-color: #f5c518;
+        }
+        .contact-card {
+            background: #0f131a;
+            border-left: 4px solid #f5c518;
+            border-top: 1px solid #1a2230;
+            border-right: 1px solid #1a2230;
+            border-bottom: 1px solid #1a2230;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .contact-item {
+            transition: all 0.3s ease;
+        }
+        .contact-item:hover {
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden antialiased selection:bg-[#f5c518] selection:text-black">
+
+    <!-- BARRA SUPERIOR DE LOGÍSTICA -->
+    <div class="bg-black text-slate-400 py-2.5 text-xs tracking-widest hidden md:block border-b border-neutral-900">
+        <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 flex justify-between items-center">
+            <div class="flex gap-8">
+                <span class="flex items-center gap-2">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-yellow-bic"></i> Carretera Saltillo-Monterrey Km 5.5, Saltillo, Coahuila
+                </span>
+            </div>
+            <div>
+                <span class="flex items-center gap-2 font-semibold text-white">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-yellow-bic"></i> Central de Operaciones: 844-499-5346
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVEGACIÓN PRINCIPAL -->
+    <nav class="w-full bg-[#f4f4f5] border-b border-neutral-300 sticky top-0 z-50 shadow-md">
+        <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 h-24 flex justify-between items-center">
+            
+            <!-- LOGO -->
+            <a href="index.html" class="flex items-center shrink-0">
+                <img src="assets/logo.png" alt="Transportes Bohem Logo" class="h-11 md:h-14 w-auto object-contain">
+            </a>
+            
+            <!-- Enlaces de Escritorio (Activo en 'Contacto') -->
+            <div class="hidden md:flex gap-10 items-center">
+                <a href="index.html" class="text-xs uppercase tracking-[0.2em] font-medium text-neutral-600 hover:text-black transition-colors">Inicio</a>
+                <a href="nosotros.html" class="text-xs uppercase tracking-[0.2em] font-medium text-neutral-600 hover:text-black transition-colors">Nosotros</a>
+                <a href="servicios.html" class="text-xs uppercase tracking-[0.2em] font-medium text-neutral-600 hover:text-black transition-colors">Servicios</a>
+                <a href="contacto.html" class="text-xs uppercase tracking-[0.2em] font-bold text-black border-b-2 border-black pb-1">Contacto</a>
+            </div>
+            
+            <!-- Botón Menú Móvil -->
+            <button id="btn-open-menu" class="md:hidden text-black focus:outline-none p-2" aria-label="Abrir menú">
+                <i data-lucide="menu" class="w-7 h-7 stroke-[2]"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MENÚ MÓVIL FULLSCREEN -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#07090c] z-[100] translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 md:hidden">
+        <div class="flex justify-between items-center border-b border-neutral-800 pb-6">
+            <div class="bg-[#f4f4f5] px-3 py-1.5">
+                <img src="assets/logo.png" alt="Transportes Bohem Logo" class="h-9 w-auto object-contain">
+            </div>
+            <button id="btn-close-menu" class="text-white focus:outline-none p-2" aria-label="Cerrar menú">
+                <i data-lucide="x" class="w-8 h-8 stroke-[2]"></i>
+            </button>
+        </div>
+        
+        <div class="flex flex-col gap-8 my-auto">
+            <a href="index.html" class="mobile-link font-heading text-3xl font-light text-slate-400 hover:text-white transition-colors">Inicio</a>
+            <a href="nosotros.html" class="mobile-link font-heading text-3xl font-light text-slate-400 hover:text-white transition-colors">Nosotros</a>
+            <a href="servicios.html" class="mobile-link font-heading text-3xl font-light text-slate-400 hover:text-white transition-colors">Servicios</a>
+            <a href="contacto.html" class="mobile-link font-heading text-3xl font-bold text-[#f5c518]">Contacto</a>
+        </div>
+
+        <div class="border-t border-neutral-800 pt-6 text-slate-400 text-xs space-y-3">
+            <p class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-yellow-bic"></i> 844-499-5346</p>
+            <p class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-yellow-bic"></i> Carretera Saltillo-Monterrey Km 5.5</p>
+        </div>
+    </div>
+
+    <!-- ENCABEZADO DE PÁGINA -->
+    <header class="bg-[#07090c] border-b border-neutral-800 py-20 px-6 lg:px-12">
+        <div class="max-w-screen-2xl mx-auto space-y-4">
+            <span class="text-xs uppercase tracking-[0.3em] font-bold text-yellow-bic block">// CENTRAL DE OPERACIONES</span>
+            <h1 class="font-heading text-4xl md:text-6xl font-extrabold uppercase tracking-tight text-white max-w-4xl leading-[1.1]">
+                Canales de contacto y <span class="text-yellow-bic">ubicación estratégica</span>
+            </h1>
+        </div>
+    </header>
+
+    <!-- SECCIÓN: DATOS DE UBICACIÓN & MAPA INTERACTIVO -->
+    <section class="py-24 px-6 lg:px-12 max-w-screen-2xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+            
+            <!-- COLUMNA IZQUIERDA: TARJETA DE DATOS -->
+            <div class="lg:col-span-5 contact-card p-8 lg:p-12 flex flex-col justify-between space-y-8">
+                
+                <div>
+                    <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block mb-2">Saltillo, Coahuila</span>
+                    <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase text-white mb-4">Base Operativa</h2>
+                    <p class="text-slate-300 font-light leading-relaxed text-sm">
+                        Para coordinar rutas, solicitar unidades de autotransporte de carga general o resolver requerimientos logísticos locales y foráneos, comuníquese directamente con nuestra central.
+                    </p>
+                </div>
+
+                <div class="space-y-6 pt-6 border-t border-neutral-800">
+                    
+                    <!-- Dirección -->
+                    <div class="contact-item flex items-start gap-4">
+                        <div class="w-12 h-12 bg-black border border-neutral-800 flex items-center justify-center text-yellow-bic shrink-0 rounded-sm">
+                            <i data-lucide="map-pin" class="w-5 h-5 stroke-[1.5]"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-heading text-xs font-bold uppercase tracking-[0.2em] text-yellow-bic mb-1">Ubicación Física</h4>
+                            <p class="text-xs font-light text-slate-300 leading-relaxed">
+                                Carretera Saltillo-Monterrey Km 5.5 #7290 Int. 131-B<br>
+                                Col. Los Rodríguez<br>
+                                Saltillo, Coahuila
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Teléfono -->
+                    <div class="contact-item flex items-start gap-4">
+                        <div class="w-12 h-12 bg-black border border-neutral-800 flex items-center justify-center text-yellow-bic shrink-0 rounded-sm">
+                            <i data-lucide="phone" class="w-5 h-5 stroke-[1.5]"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-heading text-xs font-bold uppercase tracking-[0.2em] text-yellow-bic mb-1">Línea Telefónica</h4>
+                            <p class="text-xs font-light text-slate-300">
+                                <a href="tel:8444995346" class="hover:text-yellow-bic font-bold text-sm transition-colors">844-499-5346</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Horario -->
+                    <div class="contact-item flex items-start gap-4">
+                        <div class="w-12 h-12 bg-black border border-neutral-800 flex items-center justify-center text-yellow-bic shrink-0 rounded-sm">
+                            <i data-lucide="clock" class="w-5 h-5 stroke-[1.5]"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-heading text-xs font-bold uppercase tracking-[0.2em] text-yellow-bic mb-1">Horario Operativo</h4>
+                            <p class="text-xs font-light text-slate-300">
+                                Lunes a Viernes: 8:00 - 18:00 hrs
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Botón de Llamada Directa -->
+                <div class="pt-4">
+                    <a href="tel:8444995346" class="w-full inline-flex items-center justify-center gap-3 bg-[#f5c518] text-black px-6 py-4 text-xs uppercase tracking-[0.2em] font-extrabold hover:bg-[#e0b213] transition-all shadow-md">
+                        <i data-lucide="phone-call" class="w-4 h-4"></i>
+                        Llamar a Central de Operaciones
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- COLUMNA DERECHA: MAPA DE GOOGLE MAPS ESTILIZADO -->
+            <div class="lg:col-span-7 contact-card min-h-[450px] lg:min-h-[100%] overflow-hidden relative">
+                <iframe 
+                    src="https://www.google.com/maps?q=Carretera+Saltillo-Monterrey+Km+5.5,+Los+Rodriguez,+Saltillo,+Coah.&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Ubicación de Transportes Bohem en Saltillo, Coahuila"
+                    class="w-full h-full min-h-[450px] filter grayscale invert contrast-125 opacity-85 hover:opacity-100 hover:grayscale-0 hover:invert-0 transition-all duration-500">
+                </iframe>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white pt-24 pb-12 border-t border-neutral-900">
+        <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 grid md:grid-cols-12 gap-12 mb-20">
+            
+            <div class="md:col-span-5 space-y-6">
+                <h3 class="font-heading font-extrabold text-xl tracking-wider text-white">
+                    TRANSPORTES BOHEM
+                </h3>
+                <p class="text-slate-400 text-sm font-light leading-relaxed max-w-md">
+                    Servicios profesionales de autotransporte de carga general, transporte terrestre local y foráneo en Saltillo, Coahuila.
+                </p>
+            </div>
+
+            <div class="md:col-span-3 space-y-4">
+                <h4 class="font-heading text-xs uppercase tracking-[0.2em] font-bold text-yellow-bic">Navegación</h4>
+                <ul class="space-y-3 text-sm font-light text-slate-400">
+                    <li><a href="index.html" class="hover:text-white transition-colors">Inicio</a></li>
+                    <li><a href="nosotros.html" class="hover:text-white transition-colors">Nosotros</a></li>
+                    <li><a href="servicios.html" class="hover:text-white transition-colors">Servicios</a></li>
+                    <li><a href="contacto.html" class="hover:text-white transition-colors">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 space-y-4">
+                <h4 class="font-heading text-xs uppercase tracking-[0.2em] font-bold text-yellow-bic">Base Operativa y Contacto</h4>
+                <ul class="space-y-3 text-sm font-light text-slate-400">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-yellow-bic shrink-0 mt-1"></i>
+                        <span>Carretera Saltillo-Monterrey Km 5.5 #7290 Int. 131-B, Los Rodríguez, Saltillo, Coahuila</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="phone" class="w-4 h-4 text-yellow-bic shrink-0"></i>
+                        <span>844-499-5346</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 border-t border-neutral-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 font-light">
+            <p>© 2026 Transportes Bohem. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE INTERACTIVIDAD -->
+    <script>
+        lucide.createIcons();
+
+        const btnOpenMenu = document.getElementById('btn-open-menu');
+        const btnCloseMenu = document.getElementById('btn-close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        btnOpenMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden'; 
+        });
+
+        const closeMenu = () => {
+            mobileMenu.classList.add('translate-x-full');
+            document.body.style.overflow = ''; 
+        };
+
+        btnCloseMenu.addEventListener('click', closeMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+    </script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Transportes Bohem</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <!-- Fuentes de Google: Oxanium e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oxanium:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #07090c; 
+            color: #f3f4f6; 
+        }
+        h1, h2, h3, h4, h5, .font-heading { 
+            font-family: 'Oxanium', sans-serif; 
+        }
+        .text-yellow-bic {
+            color: #f5c518;
+        }
+        .bg-yellow-bic {
+            background-color: #f5c518;
+        }
+        .border-yellow-bic {
+            border-color: #f5c518;
+        }
+        .editorial-card {
+            background: #0f131a;
+            border-left: 4px solid #f5c518;
+            border-top: 1px solid #1a2230;
+            border-right: 1px solid #1a2230;
+            border-bottom: 1px solid #1a2230;
+            transition: all 0.3s ease;
+        }
+        .editorial-card:hover {
+            background: #131822;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden antialiased selection:bg-[#f5c518] selection:text-black">
+
+    <!-- BARRA SUPERIOR DE LOGÍSTICA -->
+    <div class="bg-black text-slate-400 py-2.5 text-xs tracking-widest hidden md:block border-b border-neutral-900">
+        <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 flex justify-between items-center">
+            <div class="flex gap-8">
+                <span class="flex items-center gap-2">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-yellow-bic"></i> Carretera Saltillo-Monterrey Km 5.5, Saltillo, Coahuila
+                </span>
+            </div>
+            <div>
+                <span class="flex items-center gap-2 font-semibold text-white">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-yellow-bic"></i> Central de Operaciones: 844-499-5346
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVEGACIÓN PRINCIPAL -->
+    <nav class="w-full bg-[#f4f4f5] border-b border-neutral-300 sticky top-0 z-50 shadow-md">
+        <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 h-24 flex justify-between items-center">
+            
+            <!-- LOGO -->
+            <a href="index.html" class="flex items-center shrink-0">
+                <img src="assets/logo.png" alt="Transportes Bohem Logo" class="h-11 md:h-14 w-auto object-contain">
+            </a>
+            
+            <!-- Enlaces de Escritorio -->
+            <div class="hidden md:flex gap-10 items-center">
+                <a href="index.html" class="text-xs uppercase tracking-[0.2em] font-medium text-neutral-600 hover:text-black transition-colors">Inicio</a>
+                <a href="nosotros.html" class="text-xs uppercase tracking-[0.2em] font-bold text-black border-b-2 border-black pb-1">Nosotros</a>
+                <a href="servicios.html" class="text-xs uppercase tracking-[0.2em] font-medium text-neutral-600 hover:text-black transition-colors">Servicios</a>
+                <a href="contacto.html" class="bg-[#f5c518] text-black text-xs uppercase tracking-[0.2em] font-extrabold px-7 py-3 hover:bg-[#e0b213] transition-colors shadow-sm">Contacto</a>
+            </div>
+            
+            <!-- Botón Menú Móvil -->
+            <button id="btn-open-menu" class="md:hidden text-black focus:outline-none p-2" aria-label="Abrir menú">
+                <i data-lucide="menu" class="w-7 h-7 stroke-[2]"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MENÚ MÓVIL FULLSCREEN -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#07090c] z-[100] translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 md:hidden">
+        <div class="flex justify-between items-center border-b border-neutral-800 pb-6">
+            <div class="bg-[#f4f4f5] px-3 py-1.5">
+                <img src="assets/logo.png" alt="Transportes Bohem Logo" class="h-9 w-auto object-contain">
+            </div>
+            <button id="btn-close-menu" class="text-white focus:outline-none p-2" aria-label="Cerrar menú">
+                <i data-lucide="x" class="w-8 h-8 stroke-[2]"></i>
+            </button>
+        </div>
+        
+        <div class="flex flex-col gap-8 my-auto">
+            <a href="index.html" class="mobile-link font-heading text-3xl font-light text-slate-400 hover:text-white transition-colors">Inicio</a>
+            <a href="nosotros.html" class="mobile-link font-heading text-3xl font-bold text-[#f5c518]">Nosotros</a>
+            <a href="servicios.html" class="mobile-link font-heading text-3xl font-light text-slate-400 hover:text-white transition-colors">Servicios</a>
+            <a href="contacto.html" class="mobile-link font-heading text-3xl font-light text-slate-400 hover:text-white transition-colors">Contacto</a>
+        </div>
+
+        <div class="border-t border-neutral-800 pt-6 text-slate-400 text-xs space-y-3">
+            <p class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-yellow-bic"></i> 844-499-5346</p>
+            <p class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-yellow-bic"></i> Carretera Saltillo-Monterrey Km 5.5</p>
+        </div>
+    </div>
+
+    <!-- ENCABEZADO ESTILO EDITORIAL -->
+    <header class="bg-[#07090c] border-b border-neutral-800 py-20 px-6 lg:px-12">
+        <div class="max-w-screen-2xl mx-auto space-y-4">
+            <span class="text-xs uppercase tracking-[0.3em] font-bold text-yellow-bic block">// MANIFIESTO CORPORATIVO</span>
+            <h1 class="font-heading text-4xl md:text-6xl font-extrabold uppercase tracking-tight text-white max-w-4xl leading-[1.1]">
+                Solidez, experiencia y <span class="text-yellow-bic">compromiso terrestre</span>
+            </h1>
+        </div>
+    </header>
+
+    <!-- SECCIÓN PRINCIPAL: FILOSOFÍA DE TRANSPORTE (ESTILO MANIFIESTO) -->
+    <section class="py-24 px-6 lg:px-12 max-w-screen-2xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-16 items-start">
+            
+            <!-- Columna Izquierda: Titular Fuerte -->
+            <div class="lg:col-span-5 space-y-6 lg:sticky lg:top-32">
+                <span class="text-xs uppercase tracking-[0.25em] font-bold text-yellow-bic block">Nuestra Esencia</span>
+                <h2 class="font-heading text-3xl lg:text-5xl font-extrabold uppercase leading-tight text-white">
+                    El motor logístico que impulsa el norte del país
+                </h2>
+                <div class="w-24 h-1 bg-[#f5c518]"></div>
+                <p class="text-slate-400 text-sm font-light pt-4">
+                    Ubicados estratégicamente sobre la Carretera Saltillo-Monterrey, coordinamos flujos masivos de mercancías con precisión milimétrica.
+                </p>
+            </div>
+
+            <!-- Columna Derecha: Texto Editorial Extendido -->
+            <div class="lg:col-span-7 space-y-8 text-slate-300 font-light leading-relaxed text-base md:text-lg">
+                <div class="editorial-card p-8 md:p-10 space-y-6">
+                    <h3 class="font-heading text-xl font-bold text-white uppercase tracking-wider">Quiénes Somos</h3>
+                    <p>
+                        <strong class="font-bold text-white">TRANSPORTES BOHEM</strong> es una empresa dedicada al sector del autotransporte de carga general, especializada en la prestación de servicios de transporte terrestre de mercancías a nivel local y foráneo, ofreciendo soluciones logísticas orientadas a satisfacer las necesidades de traslado y distribución de productos de los sectores comercial, industrial y empresarial.
+                    </p>
+                </div>
+
+                <div class="editorial-card p-8 md:p-10 space-y-6">
+                    <h3 class="font-heading text-xl font-bold text-white uppercase tracking-wider">Conexión y Cadena de Suministro</h3>
+                    <p>
+                        Sus actividades comprenden la movilización de mercancías mediante servicios de transporte de carga general, facilitando la conexión entre distintos puntos de origen y destino, contribuyendo a la continuidad de las operaciones comerciales y al funcionamiento eficiente de las cadenas de suministro.
+                    </p>
+                </div>
+
+                <div class="editorial-card p-8 md:p-10 space-y-6">
+                    <h3 class="font-heading text-xl font-bold text-white uppercase tracking-wider">Optimización Operativa</h3>
+                    <p>
+                        Asimismo, la empresa se enfoca en proporcionar alternativas de transporte adaptadas a los requerimientos operativos de sus clientes, buscando optimizar los procesos de traslado, distribución y entrega de mercancías mediante una adecuada coordinación logística.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN: MISIÓN Y VISIÓN (DISEÑO INDUSTRIAL LIMPIO) -->
+    <section class="bg-[#0f131a] py-24 border-y border-neutral-800">
+        <div class="max-w-screen-2xl mx-auto px-6 lg:px-12">
+            
+            <div class="mb-16">
+                <span class="text-xs uppercase tracking-[0.25em] font-bold text-yellow-bic block mb-3">Dirección Estratégica</span>
+                <h2 class="font-heading text-3xl font-extrabold uppercase text-white">Misión y Visión Corporativa</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                
+                <!-- Misión -->
+                <div class="bg-[#07090c] p-10 border border-neutral-800 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-[#f5c518]/5 rounded-bl-full pointer-events-none"></div>
+                    <span class="text-xs font-mono text-yellow-bic uppercase tracking-widest block mb-4">[ PROPOSITO CENTRAL ]</span>
+                    <h3 class="font-heading text-2xl font-bold text-white uppercase mb-4">Nuestra Misión</h3>
+                    <p class="text-slate-300 font-light leading-relaxed text-sm md:text-base">
+                        TRANSPORTES BOHEM tiene como propósito brindar soluciones de transporte terrestre eficientes, seguras y confiables, orientadas a fortalecer las operaciones logísticas de sus clientes, promoviendo la puntualidad, la calidad en el servicio y la eficiencia operativa dentro del sector del autotransporte de carga.
+                    </p>
+                </div>
+
+                <!-- Visión -->
+                <div class="bg-[#07090c] p-10 border border-neutral-800 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-[#f5c518]/5 rounded-bl-full pointer-events-none"></div>
+                    <span class="text-xs font-mono text-yellow-bic uppercase tracking-widest block mb-4">[ PROYECCIÓN FUTURA ]</span>
+                    <h3 class="font-heading text-2xl font-bold text-white uppercase mb-4">Nuestra Visión</h3>
+                    <p class="text-slate-300 font-light leading-relaxed text-sm md:text-base">
+                        Consolidarnos como el aliado logístico de referencia en el norte de México, expandiendo nuestra capacidad operativa y manteniendo los más altos estándares de seguridad, control y confianza en cada ruta de autotransporte general.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white pt-24 pb-12 border-t border-neutral-900">
+        <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 grid md:grid-cols-12 gap-12 mb-20">
+            
+            <div class="md:col-span-5 space-y-6">
+                <h3 class="font-heading font-extrabold text-xl tracking-wider text-white">
+                    TRANSPORTES BOHEM
+                </h3>
+                <p class="text-slate-400 text-sm font-light leading-relaxed max-w-md">
+                    Servicios profesionales de autotransporte de carga general, transporte terrestre local y foráneo en Saltillo, Coahuila.
+                </p>
+            </div>
+
+            <div class="md:col-span-3 space-y-4">
+                <h4 class="font-heading text-xs uppercase tracking-[0.2em] font-bold text-yellow-bic">Navegación</h4>
+                <ul class="space-y-3 text-sm font-light text-slate-400">
+                    <li><a href="index.html" class="hover:text-white transition-colors">Inicio</a></li>
+                    <li><a href="nosotros.html" class="hover:text-white transition-colors">Nosotros</a></li>
+                    <li><a href="servicios.html" class="hover:text-white transition-colors">Servicios</a></li>
+                    <li><a href="contacto.html" class="hover:text-white transition-colors">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 space-y-4">
+                <h4 class="font-heading text-xs uppercase tracking-[0.2em] font-bold text-yellow-bic">Base Operativa y Contacto</h4>
+                <ul class="space-y-3 text-sm font-light text-slate-400">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-yellow-bic shrink-0 mt-1"></i>
+                        <span>Carretera Saltillo-Monterrey Km 5.5 #7290 Int. 131-B, Los Rodríguez, Saltillo, Coahuila</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="phone" class="w-4 h-4 text-yellow-bic shrink-0"></i>
+                        <span>844-499-5346</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 border-t border-neutral-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 font-light">
+            <p>© 2026 Transportes Bohem. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE INTERACTIVIDAD -->
+    <script>
+        lucide.createIcons();
+
+        const btnOpenMenu = document.getElementById('btn-open-menu');
+        const btnCloseMenu = document.getElementById('btn-close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        btnOpenMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden'; 
+        });
+
+        const closeMenu = () => {
+            mobileMenu.classList.add('translate-x-full');
+            document.body.style.overflow = ''; 
+        };
+
+        btnCloseMenu.addEventListener('click', closeMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+    </script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | Transportes Bohem</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <!-- Fuentes de Google: Oxanium e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oxanium:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #07090c; 
+            color: #f3f4f6; 
+        }
+        h1, h2, h3, h4, h5, .font-heading { 
+            font-family: 'Oxanium', sans-serif; 
+        }
+        .text-yellow-bic {
+            color: #f5c518;
+        }
+        .bg-yellow-bic {
+            background-color: #f5c518;
+        }
+        .border-yellow-bic {
+            border-color: #f5c518;
+        }
+        /* Transiciones suaves y efectos interactivos */
+        .service-card {
+            background: #0f131a;
+            border-left: 4px solid #1a2230;
+            border-top: 1px solid #1a2230;
+            border-right: 1px solid #1a2230;
+            border-bottom: 1px solid #1a2230;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .service-card:hover {
+            background: #131822;
+            border-left-color: #f5c518;
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px -10px rgba(245, 197, 24, 0.15);
+        }
+        .service-card:hover .icon-box {
+            background-color: #f5c518;
+            color: #000000;
+            border-color: #f5c518;
+        }
+        .icon-box {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden antialiased selection:bg-[#f5c518] selection:text-black">
+
+    <!-- BARRA SUPERIOR DE LOGÍSTICA -->
+    <div class="bg-black text-slate-400 py-2.5 text-xs tracking-widest hidden md:block border-b border-neutral-900">
+        <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 flex justify-between items-center">
+            <div class="flex gap-8">
+                <span class="flex items-center gap-2">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-yellow-bic"></i> Carretera Saltillo-Monterrey Km 5.5, Saltillo, Coahuila
+                </span>
+            </div>
+            <div>
+                <span class="flex items-center gap-2 font-semibold text-white">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-yellow-bic"></i> Central de Operaciones: 844-499-5346
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVEGACIÓN PRINCIPAL -->
+    <nav class="w-full bg-[#f4f4f5] border-b border-neutral-300 sticky top-0 z-50 shadow-md">
+        <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 h-24 flex justify-between items-center">
+            
+            <!-- LOGO -->
+            <a href="index.html" class="flex items-center shrink-0">
+                <img src="assets/logo.png" alt="Transportes Bohem Logo" class="h-11 md:h-14 w-auto object-contain">
+            </a>
+            
+            <!-- Enlaces de Escritorio (Activo en 'Servicios') -->
+            <div class="hidden md:flex gap-10 items-center">
+                <a href="index.html" class="text-xs uppercase tracking-[0.2em] font-medium text-neutral-600 hover:text-black transition-colors">Inicio</a>
+                <a href="nosotros.html" class="text-xs uppercase tracking-[0.2em] font-medium text-neutral-600 hover:text-black transition-colors">Nosotros</a>
+                <a href="servicios.html" class="text-xs uppercase tracking-[0.2em] font-bold text-black border-b-2 border-black pb-1">Servicios</a>
+                <a href="contacto.html" class="bg-[#f5c518] text-black text-xs uppercase tracking-[0.2em] font-extrabold px-7 py-3 hover:bg-[#e0b213] transition-colors shadow-sm">Contacto</a>
+            </div>
+            
+            <!-- Botón Menú Móvil -->
+            <button id="btn-open-menu" class="md:hidden text-black focus:outline-none p-2" aria-label="Abrir menú">
+                <i data-lucide="menu" class="w-7 h-7 stroke-[2]"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MENÚ MÓVIL FULLSCREEN -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#07090c] z-[100] translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 md:hidden">
+        <div class="flex justify-between items-center border-b border-neutral-800 pb-6">
+            <div class="bg-[#f4f4f5] px-3 py-1.5">
+                <img src="assets/logo.png" alt="Transportes Bohem Logo" class="h-9 w-auto object-contain">
+            </div>
+            <button id="btn-close-menu" class="text-white focus:outline-none p-2" aria-label="Cerrar menú">
+                <i data-lucide="x" class="w-8 h-8 stroke-[2]"></i>
+            </button>
+        </div>
+        
+        <div class="flex flex-col gap-8 my-auto">
+            <a href="index.html" class="mobile-link font-heading text-3xl font-light text-slate-400 hover:text-white transition-colors">Inicio</a>
+            <a href="nosotros.html" class="mobile-link font-heading text-3xl font-light text-slate-400 hover:text-white transition-colors">Nosotros</a>
+            <a href="servicios.html" class="mobile-link font-heading text-3xl font-bold text-[#f5c518]">Servicios</a>
+            <a href="contacto.html" class="mobile-link font-heading text-3xl font-light text-slate-400 hover:text-white transition-colors">Contacto</a>
+        </div>
+
+        <div class="border-t border-neutral-800 pt-6 text-slate-400 text-xs space-y-3">
+            <p class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-yellow-bic"></i> 844-499-5346</p>
+            <p class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-yellow-bic"></i> Carretera Saltillo-Monterrey Km 5.5</p>
+        </div>
+    </div>
+
+    <!-- ENCABEZADO DE PÁGINA -->
+    <header class="bg-[#07090c] border-b border-neutral-800 py-20 px-6 lg:px-12">
+        <div class="max-w-screen-2xl mx-auto space-y-4">
+            <span class="text-xs uppercase tracking-[0.3em] font-bold text-yellow-bic block">// CATÁLOGO LOGÍSTICO</span>
+            <h1 class="font-heading text-4xl md:text-6xl font-extrabold uppercase tracking-tight text-white max-w-4xl leading-[1.1]">
+                Soluciones integrales de <span class="text-yellow-bic">autotransporte y carga</span>
+            </h1>
+        </div>
+    </header>
+
+    <!-- SECCIÓN: DETALLE DE LOS SERVICIOS (CON TRANSICIONES FLUIDAS) -->
+    <section class="py-24 px-6 lg:px-12 max-w-screen-2xl mx-auto space-y-12">
+        
+        <!-- SERVICIO 1 -->
+        <div class="service-card p-8 lg:p-12 grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-4">
+                <div class="icon-box w-14 h-14 bg-black border border-neutral-800 flex items-center justify-center text-yellow-bic mb-2 rounded-sm">
+                    <i data-lucide="truck" class="w-7 h-7 stroke-[1.5]"></i>
+                </div>
+                <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block">01 / TRASLADO TERRESTRE</span>
+                <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase text-white">Autotransporte de Carga General</h2>
+                <p class="text-slate-300 font-light text-sm md:text-base leading-relaxed">
+                    Movilización profesional de mercancías e insumos para los sectores comercial, industrial y empresarial con total respaldo operativo.
+                </p>
+            </div>
+            <div class="lg:col-span-7 lg:border-l lg:border-neutral-800 lg:pl-12 pt-6 lg:pt-0">
+                <h3 class="font-heading text-xs font-bold uppercase tracking-[0.2em] text-yellow-bic mb-6">// ALCANCE OPERATIVO:</h3>
+                <ul class="grid sm:grid-cols-2 gap-4 text-xs font-light text-slate-300">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-bic shrink-0 mt-0.5"></i>
+                        <span>Transporte terrestre de carga general</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-bic shrink-0 mt-0.5"></i>
+                        <span>Atención a sectores industrial y comercial</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-bic shrink-0 mt-0.5"></i>
+                        <span>Unidades acondicionadas para diversos volúmenes</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-bic shrink-0 mt-0.5"></i>
+                        <span>Seguimiento y control de mercancía en trayecto</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SERVICIO 2 -->
+        <div class="service-card p-8 lg:p-12 grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-4">
+                <div class="icon-box w-14 h-14 bg-black border border-neutral-800 flex items-center justify-center text-yellow-bic mb-2 rounded-sm">
+                    <i data-lucide="map-pinned" class="w-7 h-7 stroke-[1.5]"></i>
+                </div>
+                <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block">02 / COBERTURA GEOGRÁFICA</span>
+                <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase text-white">Rutas Locales y Foráneas</h2>
+                <p class="text-slate-300 font-light text-sm md:text-base leading-relaxed">
+                    Conexión fluida y directa entre distintos puntos de origen y destino para garantizar la continuidad ininterrumpida de sus operaciones.
+                </p>
+            </div>
+            <div class="lg:col-span-7 lg:border-l lg:border-neutral-800 lg:pl-12 pt-6 lg:pt-0">
+                <h3 class="font-heading text-xs font-bold uppercase tracking-[0.2em] text-yellow-bic mb-6">// ALCANCE OPERATIVO:</h3>
+                <ul class="grid sm:grid-cols-2 gap-4 text-xs font-light text-slate-300">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-bic shrink-0 mt-0.5"></i>
+                        <span>Distribución local en centros de consumo</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-bic shrink-0 mt-0.5"></i>
+                        <span>Rutas foráneas de largo alcance</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-bic shrink-0 mt-0.5"></i>
+                        <span>Conexión estratégica desde el norte del país</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-bic shrink-0 mt-0.5"></i>
+                        <span>Puntualidad en puntos de entrega clave</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SERVICIO 3 -->
+        <div class="service-card p-8 lg:p-12 grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-4">
+                <div class="icon-box w-14 h-14 bg-black border border-neutral-800 flex items-center justify-center text-yellow-bic mb-2 rounded-sm">
+                    <i data-lucide="boxes" class="w-7 h-7 stroke-[1.5]"></i>
+                </div>
+                <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block">03 / GESTIÓN DE CADENA</span>
+                <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase text-white">Soluciones Logísticas</h2>
+                <p class="text-slate-300 font-light text-sm md:text-base leading-relaxed">
+                    Alternativas de transporte adaptadas a los requerimientos operativos de traslado, distribución y entrega eficiente de productos.
+                </p>
+            </div>
+            <div class="lg:col-span-7 lg:border-l lg:border-neutral-800 lg:pl-12 pt-6 lg:pt-0">
+                <h3 class="font-heading text-xs font-bold uppercase tracking-[0.2em] text-yellow-bic mb-6">// ALCANCE OPERATIVO:</h3>
+                <ul class="grid sm:grid-cols-2 gap-4 text-xs font-light text-slate-300">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-bic shrink-0 mt-0.5"></i>
+                        <span>Estrategias de distribución a la medida</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-bic shrink-0 mt-0.5"></i>
+                        <span>Soporte en la cadena de suministro</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-bic shrink-0 mt-0.5"></i>
+                        <span>Coordinación de tiempos de carga y descarga</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-bic shrink-0 mt-0.5"></i>
+                        <span>Eficiencia en el manejo de inventarios en tránsito</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SERVICIO 4 -->
+        <div class="service-card p-8 lg:p-12 grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-4">
+                <div class="icon-box w-14 h-14 bg-black border border-neutral-800 flex items-center justify-center text-yellow-bic mb-2 rounded-sm">
+                    <i data-lucide="sliders-horizontal" class="w-7 h-7 stroke-[1.5]"></i>
+                </div>
+                <span class="text-xs font-mono text-slate-500 uppercase tracking-widest block">04 / PLANEACIÓN Y CONTROL</span>
+                <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase text-white">Coordinación de Traslados</h2>
+                <p class="text-slate-300 font-light text-sm md:text-base leading-relaxed">
+                    Optimización de procesos de traslado mediante supervisión experta para garantizar que cada embarque cumpla con los estándares requeridos.
+                </p>
+            </div>
+            <div class="lg:col-span-7 lg:border-l lg:border-neutral-800 lg:pl-12 pt-6 lg:pt-0">
+                <h3 class="font-heading text-xs font-bold uppercase tracking-[0.2em] text-yellow-bic mb-6">// ALCANCE OPERATIVO:</h3>
+                <ul class="grid sm:grid-cols-2 gap-4 text-xs font-light text-slate-300">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-bic shrink-0 mt-0.5"></i>
+                        <span>Supervisión logística permanente</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-bic shrink-0 mt-0.5"></i>
+                        <span>Planeación de rutas eficientes</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-bic shrink-0 mt-0.5"></i>
+                        <span>Mitigación de tiempos de espera</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-yellow-bic shrink-0 mt-0.5"></i>
+                        <span>Comunicación directa con la central de operaciones</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- BANNER DE LLAMADO A LA ACCIÓN -->
+    <section class="py-16 bg-[#0f131a] border-y border-neutral-800 px-6 lg:px-12">
+        <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="space-y-2">
+                <h3 class="font-heading text-2xl md:text-3xl font-bold text-white uppercase">¿Requiere coordinar un servicio de carga general?</h3>
+                <p class="text-xs font-light text-slate-400">Comuníquese con nuestra base operativa en la Carretera Saltillo-Monterrey para recibir atención inmediata.</p>
+            </div>
+            <a href="contacto.html" class="bg-[#f5c518] text-black text-xs uppercase tracking-[0.2em] font-extrabold px-8 py-4 hover:bg-[#e0b213] transition-all shrink-0 shadow-md">
+                Solicitar Cotización
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white pt-24 pb-12 border-t border-neutral-900">
+        <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 grid md:grid-cols-12 gap-12 mb-20">
+            
+            <div class="md:col-span-5 space-y-6">
+                <h3 class="font-heading font-extrabold text-xl tracking-wider text-white">
+                    TRANSPORTES BOHEM
+                </h3>
+                <p class="text-slate-400 text-sm font-light leading-relaxed max-w-md">
+                    Servicios profesionales de autotransporte de carga general, transporte terrestre local y foráneo en Saltillo, Coahuila.
+                </p>
+            </div>
+
+            <div class="md:col-span-3 space-y-4">
+                <h4 class="font-heading text-xs uppercase tracking-[0.2em] font-bold text-yellow-bic">Navegación</h4>
+                <ul class="space-y-3 text-sm font-light text-slate-400">
+                    <li><a href="index.html" class="hover:text-white transition-colors">Inicio</a></li>
+                    <li><a href="nosotros.html" class="hover:text-white transition-colors">Nosotros</a></li>
+                    <li><a href="servicios.html" class="hover:text-white transition-colors">Servicios</a></li>
+                    <li><a href="contacto.html" class="hover:text-white transition-colors">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 space-y-4">
+                <h4 class="font-heading text-xs uppercase tracking-[0.2em] font-bold text-yellow-bic">Base Operativa y Contacto</h4>
+                <ul class="space-y-3 text-sm font-light text-slate-400">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-yellow-bic shrink-0 mt-1"></i>
+                        <span>Carretera Saltillo-Monterrey Km 5.5 #7290 Int. 131-B, Los Rodríguez, Saltillo, Coahuila</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="phone" class="w-4 h-4 text-yellow-bic shrink-0"></i>
+                        <span>844-499-5346</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 border-t border-neutral-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 font-light">
+            <p>© 2026 Transportes Bohem. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE INTERACTIVIDAD -->
+    <script>
+        lucide.createIcons();
+
+        const btnOpenMenu = document.getElementById('btn-open-menu');
+        const btnCloseMenu = document.getElementById('btn-close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        btnOpenMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden'; 
+        });
+
+        const closeMenu = () => {
+            mobileMenu.classList.add('translate-x-full');
+            document.body.style.overflow = ''; 
+        };
+
+        btnCloseMenu.addEventListener('click', closeMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+    </script>
+</body>
+</html>
